@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dpvoldlxlqkjv"]
+
+[ext_resource type="Texture2D" uid="uid://byo71yexx368k" path="res://icon.svg" id="1_80nbo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80nbo"]
+albedo_color = Color(0.6745098, 0.22745098, 0.13725491, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_e2o6t"]
+material = SubResource("StandardMaterial3D_80nbo")
+
+[sub_resource type="MeshTexture" id="MeshTexture_feb5d"]
+mesh = SubResource("QuadMesh_e2o6t")
+
+[node name="Game" type="Node2D" unique_id=1589955120]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1460115044]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=511092355]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1030085674]
+shape = SubResource("RectangleShape2D_7jktm")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=870257687]
+texture = ExtResource("1_80nbo")
+
+[node name="Floor" type="Sprite2D" parent="." unique_id=1887254331]
+position = Vector2(-213, -137)
+scale = Vector2(385, 328)
+texture = SubResource("MeshTexture_feb5d")

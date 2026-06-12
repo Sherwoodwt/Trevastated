@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Trevastated"
+run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/mode=2
 
 [physics]
 
