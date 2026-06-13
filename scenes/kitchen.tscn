@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://qfqwwdrcd1yc"]
+
+[ext_resource type="PackedScene" uid="uid://ya82mjagkwwn" path="res://things/floor.tscn" id="1_b2xus"]
+[ext_resource type="PackedScene" uid="uid://5r2yoqy5elx0" path="res://things/door.tscn" id="2_iep16"]
+
+[node name="Room" type="Node2D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_b2xus")]
+scale = Vector2(-1.15872, 1.0749)
+
+[node name="Door" parent="." instance=ExtResource("2_iep16")]
+position = Vector2(-433, 269)
+next_room_path = "res://scenes/hallway.tscn"
+label = "kitchen_exit"
+inverse = "kitchen_entrance"
+direction = Vector2(1, 0)
+
+[node name="Door2" parent="." instance=ExtResource("2_iep16")]
+position = Vector2(431, -269)
+next_room_path = "res://scenes/backyard.tscn"
+label = "house_exit"
+inverse = "house_entrance"
+direction = Vector2(0, 1)

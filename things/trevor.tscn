@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvufbfg88p07l"]
+
+[ext_resource type="Script" path="res://scripts/trevor.gd" id="1_05qkw"]
+[ext_resource type="Texture2D" uid="uid://byo71yexx368k" path="res://assets/icon.svg" id="2_lbrp5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
+size = Vector2(68, 68)
+
+[node name="Trevor" type="CharacterBody2D" groups=["player"]]
+top_level = true
+position = Vector2(0, -140)
+motion_mode = 1
+script = ExtResource("1_05qkw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7jktm")
+debug_color = Color(1.2514e-06, 0.687578, 0.803171, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_lbrp5")

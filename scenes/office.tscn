@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpvoldlxlqkjv"]
+
+[ext_resource type="PackedScene" uid="uid://ya82mjagkwwn" path="res://things/floor.tscn" id="1_abhnf"]
+[ext_resource type="PackedScene" uid="uid://d2vwwylmghcu5" path="res://things/computer.tscn" id="2_4jfw2"]
+[ext_resource type="PackedScene" uid="uid://5r2yoqy5elx0" path="res://things/door.tscn" id="4_udyxr"]
+
+[node name="Room" type="Node2D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_abhnf")]
+
+[node name="Door" parent="." instance=ExtResource("4_udyxr")]
+position = Vector2(369, 247)
+next_room_path = "res://scenes/hallway.tscn"
+label = "office_exit"
+inverse = "office_entrance"
+direction = Vector2(-1, 0)
+
+[node name="Computer" parent="." instance=ExtResource("2_4jfw2")]
