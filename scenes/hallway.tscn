@@ -1,22 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr74gy562gc8i"]
+[gd_scene format=3 uid="uid://cr74gy562gc8i"]
 
 [ext_resource type="PackedScene" uid="uid://ya82mjagkwwn" path="res://things/floor.tscn" id="1_slfjp"]
+[ext_resource type="Script" uid="uid://ja7mr8rn00n3" path="res://scripts/room.gd" id="1_u7i40"]
 [ext_resource type="PackedScene" uid="uid://5r2yoqy5elx0" path="res://things/door.tscn" id="2_vomo3"]
 
-[node name="Room" type="Node2D"]
+[node name="Room" type="Node2D" unique_id=585144308]
+script = ExtResource("1_u7i40")
+label = "hallway"
 
-[node name="Floor" parent="." instance=ExtResource("1_slfjp")]
+[node name="Floor" parent="." unique_id=1391720260 instance=ExtResource("1_slfjp")]
 position = Vector2(0, 39)
 scale = Vector2(1, 0.240001)
 
-[node name="Door" parent="." instance=ExtResource("2_vomo3")]
+[node name="Door" parent="." unique_id=423251405 instance=ExtResource("2_vomo3")]
 position = Vector2(-368, 23)
 next_room_path = "res://scenes/office.tscn"
 label = "office_entrance"
 inverse = "office_exit"
 direction = Vector2(1, 0)
 
-[node name="Door2" parent="." instance=ExtResource("2_vomo3")]
+[node name="Door2" parent="." unique_id=1334456290 instance=ExtResource("2_vomo3")]
 position = Vector2(369, 37)
 next_room_path = "res://scenes/kitchen.tscn"
 label = "kitchen_entrance"

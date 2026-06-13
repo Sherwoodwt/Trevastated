@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bqmt8b70nd1h0"]
+
+[ext_resource type="Script" uid="uid://dahsoredi1e5n" path="res://scripts/chore.gd" id="1_a155w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbino"]
+size = Vector2(200, 200)
+
+[node name="Area2D" type="Area2D" unique_id=594225461]
+script = ExtResource("1_a155w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1946499071]
+shape = SubResource("RectangleShape2D_cbino")
+
+[node name="Area" type="Node2D" parent="." unique_id=1504029203]
+
+[connection signal="body_entered" from="." to="." method="enter"]
+[connection signal="body_exited" from="." to="." method="exit"]

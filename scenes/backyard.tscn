@@ -1,17 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://ng866mlv2e70"]
+[gd_scene format=3 uid="uid://ng866mlv2e70"]
 
 [ext_resource type="PackedScene" uid="uid://ya82mjagkwwn" path="res://things/floor.tscn" id="1_3chy7"]
+[ext_resource type="Script" uid="uid://ja7mr8rn00n3" path="res://scripts/room.gd" id="1_c76ol"]
 [ext_resource type="PackedScene" uid="uid://5r2yoqy5elx0" path="res://things/door.tscn" id="2_jxqff"]
+[ext_resource type="PackedScene" uid="uid://c6th7lbefqrr7" path="res://things/fallen_branch.tscn" id="3_wwo0i"]
+[ext_resource type="Resource" uid="uid://6edsxn6252u0" path="res://resources/fallen_branch.tres" id="5_euoo7"]
 
-[node name="Room" type="Node2D"]
+[node name="Room" type="Node2D" unique_id=1801757194]
+script = ExtResource("1_c76ol")
+label = "backyard"
 
-[node name="Floor" parent="." instance=ExtResource("1_3chy7")]
+[node name="Floor" parent="." unique_id=1985314640 instance=ExtResource("1_3chy7")]
 modulate = Color(0.505882, 1, 0, 1)
 position = Vector2(0, -1)
 
-[node name="Door" parent="." instance=ExtResource("2_jxqff")]
+[node name="Door" parent="." unique_id=755061857 instance=ExtResource("2_jxqff")]
 position = Vector2(367, 248)
 next_room_path = "res://scenes/kitchen.tscn"
 label = "house_entrance"
 inverse = "house_exit"
 direction = Vector2(0, -1)
+
+[node name="FallenBranch" parent="." unique_id=630537360 instance=ExtResource("3_wwo0i")]
+position = Vector2(-167, 43)
+chore_data = ExtResource("5_euoo7")

@@ -1,18 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpvoldlxlqkjv"]
+[gd_scene format=3 uid="uid://dm6rubqnu6d86"]
 
+[ext_resource type="Script" uid="uid://ja7mr8rn00n3" path="res://scripts/room.gd" id="1_7jj4f"]
 [ext_resource type="PackedScene" uid="uid://ya82mjagkwwn" path="res://things/floor.tscn" id="1_abhnf"]
-[ext_resource type="PackedScene" uid="uid://d2vwwylmghcu5" path="res://things/computer.tscn" id="2_4jfw2"]
+[ext_resource type="PackedScene" uid="uid://d2vwwylmghcu5" path="res://things/computer.tscn" id="3_jwaux"]
 [ext_resource type="PackedScene" uid="uid://5r2yoqy5elx0" path="res://things/door.tscn" id="4_udyxr"]
 
-[node name="Room" type="Node2D"]
+[node name="Room" type="Node2D" unique_id=3565350]
+script = ExtResource("1_7jj4f")
+label = "office"
 
-[node name="Floor" parent="." instance=ExtResource("1_abhnf")]
+[node name="Floor" parent="." unique_id=665555793 instance=ExtResource("1_abhnf")]
 
-[node name="Door" parent="." instance=ExtResource("4_udyxr")]
+[node name="Door" parent="." unique_id=660104028 instance=ExtResource("4_udyxr")]
 position = Vector2(369, 247)
-next_room_path = "res://scenes/hallway.tscn"
+next_room_path = "uid://cr74gy562gc8i"
 label = "office_exit"
 inverse = "office_entrance"
 direction = Vector2(-1, 0)
 
-[node name="Computer" parent="." instance=ExtResource("2_4jfw2")]
+[node name="Computer" parent="." unique_id=1014683724 instance=ExtResource("3_jwaux")]
+position = Vector2(0, -271)

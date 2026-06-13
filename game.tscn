@@ -1,12 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpvoldlxlqkjv"]
+[gd_scene format=3 uid="uid://boqnd0oc8tn16"]
 
+[ext_resource type="PackedScene" uid="uid://iadqsguvhyo8" path="res://things/chore_factory.tscn" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cvufbfg88p07l" path="res://things/trevor.tscn" id="1_w3pct"]
-[ext_resource type="PackedScene" uid="uid://dpvoldlxlqkjv" path="res://scenes/office.tscn" id="2_vychf"]
+[ext_resource type="Script" uid="uid://6nrsoxpxn43k" path="res://scripts/chore_data.gd" id="2_7jktm"]
+[ext_resource type="PackedScene" uid="uid://dm6rubqnu6d86" path="res://scenes/office.tscn" id="2_e2o6t"]
+[ext_resource type="Resource" uid="uid://6edsxn6252u0" path="res://resources/fallen_branch.tres" id="3_ryrav"]
+[ext_resource type="Script" uid="uid://dmjuap3pn45x3" path="res://chore_label.gd" id="5_7jktm"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1759030397]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="ChoreFactory" parent="." unique_id=318660104 instance=ExtResource("1_fc0e3")]
+min_time = 1
+max_time = 2
+chore_options = Array[ExtResource("2_7jktm")]([ExtResource("3_ryrav")])
 
-[node name="Trevor" parent="." instance=ExtResource("1_w3pct")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=713955531]
 
-[node name="Room" parent="." instance=ExtResource("2_vychf")]
+[node name="Trevor" parent="." unique_id=92534709 instance=ExtResource("1_w3pct")]
+SPEED = 400.0
+
+[node name="Room" parent="." unique_id=3565350 instance=ExtResource("2_e2o6t")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1031450574]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=96952294]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Chores: 0"
+script = ExtResource("5_7jktm")

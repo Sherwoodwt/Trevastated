@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://iadqsguvhyo8"]
+
+[ext_resource type="Script" uid="uid://cqvm08dml47eg" path="res://scripts/chore_factory.gd" id="1_aj07j"]
+
+[node name="ChoreFactory" type="Node2D" unique_id=318660104]
+script = ExtResource("1_aj07j")
+
+[node name="Timer" type="Timer" parent="." unique_id=337815382]
