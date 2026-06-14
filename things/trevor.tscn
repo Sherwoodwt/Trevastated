@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvufbfg88p07l"]
 
-[ext_resource type="Script" uid="uid://w8mtcpq43at1" path="res://scripts/trevor.gd" id="1_05qkw"]
+[ext_resource type="Script" uid="uid://w8mtcpq43at1" path="res://scripts/player.gd" id="1_05qkw"]
 [ext_resource type="Texture2D" uid="uid://b0yri2wyedysd" path="res://assets/trevor.png" id="2_0oblr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]

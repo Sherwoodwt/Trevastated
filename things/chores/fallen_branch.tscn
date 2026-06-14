@@ -12,6 +12,7 @@ size = Vector2(200, 200)
 size = Vector2(116, 33)
 
 [node name="FallenBranch" type="Area2D" unique_id=630537360]
+position = Vector2(-307, 178)
 script = ExtResource("1_4cqsh")
 metadata/_custom_type_script = "uid://dahsoredi1e5n"
 

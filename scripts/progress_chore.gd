@@ -4,14 +4,10 @@ extends Chore
 @onready var _progress: TextureProgressBar = $CanvasLayer/ProgressBar
 
 func _ready():
+	super()
 	_progress.visible = false
 	start.connect(_start)
 	stop.connect(_stop)
-	super()
-
-func _setup():
-	super()
-	_progress.visible = false
 
 func _start():
 	_progress.visible = true
@@ -27,5 +23,5 @@ func _physics_process(delta: float) -> void:
 		finish()
 
 func finish():
-	Score.remove_chore(chore_data)q
+	Score.remove_chore(chore_data)
 	queue_free()

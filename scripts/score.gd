@@ -2,12 +2,14 @@ extends Node
 
 signal update_chores(count: int)
 signal chore_removed(chore: ChoreData)
+signal chore_added(chore: ChoreData)
 
 var score: int
 var _chores: Array[ChoreData]
 
 func add_chore(chore_data: ChoreData):
 	_chores.append(chore_data)
+	chore_added.emit(chore_data)
 	update_chores.emit(_chores.size())
 
 func remove_chore(chore_data: ChoreData):
@@ -17,8 +19,8 @@ func remove_chore(chore_data: ChoreData):
 		chore_removed.emit(chore_data)
 		update_chores.emit(_chores.size())
 
-func is_active(chore: ChoreData):
-	return _chores.has(chore)
-
 func get_chores_length():
 	return _chores.size()
+
+func get_room_chores(room: String) -> Array[ChoreData]:
+	return _chores.filter(func(c): return c.room_label == room)

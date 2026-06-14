@@ -9,7 +9,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wuk1n"]
 size = Vector2(200, 200)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4lhs"]
+size = Vector2(16, 38)
+
 [node name="InternetMan" type="Area2D" unique_id=601056861]
+position = Vector2(-355, 222)
 script = ExtResource("1_wuk1n")
 chore_data = ExtResource("2_2pfjm")
 metadata/_custom_type_script = "uid://q3w2mdlwr7xb"
@@ -17,8 +21,14 @@ metadata/_custom_type_script = "uid://q3w2mdlwr7xb"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1843439996]
 shape = SubResource("RectangleShape2D_wuk1n")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=3819933]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=623508075]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=3819933]
 texture = ExtResource("2_oyr22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1944701991]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_g4lhs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=495890040]
 

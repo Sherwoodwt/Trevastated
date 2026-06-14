@@ -1,7 +1,6 @@
 class_name Chore
 extends Area2D
 
-signal setup
 signal start
 signal stop
 
@@ -11,14 +10,6 @@ var _body: Node2D
 func _ready():
 	body_entered.connect(enter)
 	body_exited.connect(exit)
-	setup.connect(_setup)
-	Score.update_chores.connect(func(c: int): _check_active())
-	visible = false
-	_check_active()
-
-func _check_active():
-	if Score.is_active(chore_data):
-		setup.emit()
 
 func enter(body: Node2D):
 	if body.is_in_group("player"):

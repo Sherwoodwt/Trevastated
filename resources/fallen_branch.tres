@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_geipd")
 room_label = "backyard"
-chore_label = null
+chore = "uid://c6th7lbefqrr7"
 metadata/_custom_type_script = "uid://6nrsoxpxn43k"
