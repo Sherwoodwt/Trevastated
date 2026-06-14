@@ -1,21 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvufbfg88p07l"]
+[gd_scene format=3 uid="uid://cvufbfg88p07l"]
 
-[ext_resource type="Script" path="res://scripts/trevor.gd" id="1_05qkw"]
-[ext_resource type="Texture2D" uid="uid://byo71yexx368k" path="res://assets/icon.svg" id="2_lbrp5"]
+[ext_resource type="Script" uid="uid://w8mtcpq43at1" path="res://scripts/trevor.gd" id="1_05qkw"]
+[ext_resource type="Texture2D" uid="uid://b0yri2wyedysd" path="res://assets/trevor.png" id="2_0oblr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
 size = Vector2(68, 68)
 
-[node name="Trevor" type="CharacterBody2D" groups=["player"]]
+[node name="Trevor" type="CharacterBody2D" unique_id=172018292 groups=["player"]]
 top_level = true
-position = Vector2(0, -140)
 motion_mode = 1
 script = ExtResource("1_05qkw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1471341888]
 shape = SubResource("RectangleShape2D_7jktm")
 debug_color = Color(1.2514e-06, 0.687578, 0.803171, 0.419608)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_lbrp5")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1526871715]
+texture = ExtResource("2_0oblr")

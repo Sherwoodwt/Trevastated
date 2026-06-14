@@ -22,5 +22,5 @@ inverse = "house_exit"
 direction = Vector2(0, -1)
 
 [node name="FallenBranch" parent="." unique_id=630537360 instance=ExtResource("3_wwo0i")]
-position = Vector2(-167, 43)
+position = Vector2(-307, 178)
 chore_data = ExtResource("5_euoo7")

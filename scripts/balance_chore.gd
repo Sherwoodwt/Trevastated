@@ -1,23 +1,29 @@
-class_name ProgressChore
+class_name BalanceChore
 extends Chore
 
 @onready var _progress: TextureProgressBar = $CanvasLayer/ProgressBar
+@onready var _balance: Balance = $CanvasLayer/Balance
 
 func _ready():
+	super()
 	_progress.visible = false
+	_balance.visible = false
 	start.connect(_start)
 	stop.connect(_stop)
-	super()
+	
 
 func _setup():
 	super()
 	_progress.visible = false
+	_balance.visible = false
 
 func _start():
 	_progress.visible = true
+	_balance.start()
 
 func _stop():
 	_progress.visible = false
+	_balance.visible = false
 
 func _physics_process(delta: float) -> void:
 	if (_body):
@@ -27,5 +33,5 @@ func _physics_process(delta: float) -> void:
 		finish()
 
 func finish():
-	Score.remove_chore(chore_data)q
+	Score.remove_chore(chore_data)
 	queue_free()

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dq12bvg4r73fv"]
+
+[ext_resource type="Texture2D" uid="uid://4ltgmmimuaml" path="res://assets/router.png" id="2_oyr22"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuk1n"]
+atlas = ExtResource("2_oyr22")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyr22"]
+atlas = ExtResource("2_oyr22")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pfjm"]
+atlas = ExtResource("2_oyr22")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnd5m"]
+atlas = ExtResource("2_oyr22")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jacm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuk1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyr22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pfjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnd5m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=1896786266]
+sprite_frames = SubResource("SpriteFrames_7jacm")

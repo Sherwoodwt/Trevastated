@@ -2,9 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://iadqsguvhyo8" path="res://things/chore_factory.tscn" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cvufbfg88p07l" path="res://things/trevor.tscn" id="1_w3pct"]
-[ext_resource type="Script" uid="uid://6nrsoxpxn43k" path="res://scripts/chore_data.gd" id="2_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dm6rubqnu6d86" path="res://scenes/office.tscn" id="2_e2o6t"]
-[ext_resource type="Resource" uid="uid://6edsxn6252u0" path="res://resources/fallen_branch.tres" id="3_ryrav"]
 [ext_resource type="Script" uid="uid://dmjuap3pn45x3" path="res://chore_label.gd" id="5_7jktm"]
 
 [node name="Game" type="Node2D" unique_id=1759030397]
@@ -12,7 +10,7 @@
 [node name="ChoreFactory" parent="." unique_id=318660104 instance=ExtResource("1_fc0e3")]
 min_time = 1
 max_time = 2
-chore_options = Array[ExtResource("2_7jktm")]([ExtResource("3_ryrav")])
+max_chores = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=713955531]
 

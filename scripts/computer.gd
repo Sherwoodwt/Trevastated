@@ -4,9 +4,9 @@ extends ProgressChore
 
 func _ready():
 	super()
-	init()
+	_setup()
 
-func init():
+func _setup():
 	super()
 	_progress.visible = false
 	_congrats.visible = false

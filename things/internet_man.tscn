@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b67fwbhe86xlv"]
+
+[ext_resource type="Script" uid="uid://q3w2mdlwr7xb" path="res://scripts/progress_chore.gd" id="1_wuk1n"]
+[ext_resource type="Resource" uid="uid://cw2phqbo48jw5" path="res://resources/internet_man.tres" id="2_2pfjm"]
+[ext_resource type="Texture2D" uid="uid://b6xcou15s7x5e" path="res://assets/router_broken.png" id="2_oyr22"]
+[ext_resource type="Texture2D" uid="uid://ym1tpbugow3r" path="res://assets/door.png" id="4_7jacm"]
+[ext_resource type="Texture2D" uid="uid://bohy45chi5jag" path="res://assets/computer.png" id="5_psxrn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuk1n"]
+size = Vector2(200, 200)
+
+[node name="InternetMan" type="Area2D" unique_id=601056861]
+script = ExtResource("1_wuk1n")
+chore_data = ExtResource("2_2pfjm")
+metadata/_custom_type_script = "uid://q3w2mdlwr7xb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1843439996]
+shape = SubResource("RectangleShape2D_wuk1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=3819933]
+texture = ExtResource("2_oyr22")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=495890040]
+
+[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1539672093]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 43.0
+offset_top = -55.0
+offset_right = 107.0
+offset_bottom = 9.0
+grow_vertical = 2
+scale = Vector2(0.2, 1.9)
+fill_mode = 3
+texture_under = ExtResource("4_7jacm")
+texture_progress = ExtResource("5_psxrn")
