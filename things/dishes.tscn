@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dk5huh23hu4i4"]
+
+[ext_resource type="Script" uid="uid://c3lod6to2xisy" path="res://scripts/dishes/dishes.gd" id="1_3t3s8"]
+[ext_resource type="Texture2D" uid="uid://1co8wo57hhvg" path="res://assets/heart.png" id="2_1bn7a"]
+[ext_resource type="Texture2D" uid="uid://trohfh7vpr44" path="res://assets/sink.png" id="2_d33ap"]
+[ext_resource type="Texture2D" uid="uid://b0yri2wyedysd" path="res://assets/trevor.png" id="3_1bn7a"]
+[ext_resource type="Texture2D" uid="uid://bohy45chi5jag" path="res://assets/computer.png" id="3_slgqe"]
+[ext_resource type="Texture2D" uid="uid://ym1tpbugow3r" path="res://assets/door.png" id="4_jffpa"]
+[ext_resource type="Texture2D" uid="uid://dpukwiwhlmgb1" path="res://assets/dishwasher.png" id="4_slgqe"]
+[ext_resource type="Script" uid="uid://b35hlcbg7v5f1" path="res://scripts/float.gd" id="6_d33ap"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ondxh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3t3s8"]
+size = Vector2(0.42068964, 0.76564777)
+
+[node name="Dishes" type="Node2D" unique_id=804026353]
+script = ExtResource("1_3t3s8")
+
+[node name="Timer" type="Timer" parent="." unique_id=203843443]
+wait_time = 30.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1728260209]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1180149644]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1325055209]
+layout_mode = 2
+texture = ExtResource("2_1bn7a")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1295149113]
+layout_mode = 2
+texture = ExtResource("2_1bn7a")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1709542931]
+layout_mode = 2
+texture = ExtResource("2_1bn7a")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=2026874720]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_bottom = -584.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1, 8.1)
+max_value = 30.0
+value = 30.0
+fill_mode = 3
+texture_under = ExtResource("4_jffpa")
+texture_progress = ExtResource("3_slgqe")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2060525394]
+
+[node name="Wall" type="Sprite2D" parent="." unique_id=1619249552]
+modulate = Color(0.6509804, 0.30980393, 0.70980394, 1)
+position = Vector2(-4, -172)
+scale = Vector2(1160, 343.5)
+texture = SubResource("CanvasTexture_ondxh")
+
+[node name="Sink" type="Sprite2D" parent="." unique_id=1088260884]
+position = Vector2(-123, -28)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_d33ap")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1798796089]
+position = Vector2(0, 171.25)
+scale = Vector2(1160, 343.5)
+
+[node name="Counter" type="Sprite2D" parent="StaticBody2D" unique_id=2019267459]
+modulate = Color(1.8771e-06, 0.511535, 0.512754, 1)
+texture = SubResource("CanvasTexture_ondxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=588755595]
+position = Vector2(0.29051724, 0.117176116)
+shape = SubResource("RectangleShape2D_3t3s8")
+
+[node name="Player" type="Sprite2D" parent="." unique_id=440104086]
+position = Vector2(29, 87)
+scale = Vector2(2, 8)
+texture = ExtResource("3_1bn7a")
+
+[node name="Dishwasher" type="Sprite2D" parent="." unique_id=1859441085]
+position = Vector2(-402, 184)
+texture = ExtResource("4_slgqe")
+
+[node name="DishLocation" type="Node2D" parent="." unique_id=1252593322]
+position = Vector2(-80, 18)
+script = ExtResource("6_d33ap")
+
+[node name="DishSpawner" type="Node2D" parent="." unique_id=820921999]
+position = Vector2(239, -434)
+
+[node name="BossSpawner" type="Node2D" parent="." unique_id=592797007]
+position = Vector2(422, -420)
+
+[connection signal="timeout" from="Timer" to="." method="fail_game"]

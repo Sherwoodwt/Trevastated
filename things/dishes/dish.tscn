@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dxwcxleery3oi"]
+
+[ext_resource type="Texture2D" uid="uid://2hnqphpbcn3p" path="res://assets/dishes/plates/dish2.png" id="1_8w0ih"]
+[ext_resource type="Script" uid="uid://1hjbcjphkayk" path="res://scripts/dishes/dish_node.gd" id="1_lp4pv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp4pv"]
+size = Vector2(11, 119)
+
+[node name="Dish" type="RigidBody2D" unique_id=882411976]
+rotation = -1.5707964
+script = ExtResource("1_lp4pv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1287901541]
+position = Vector2(-2.5, -0.5)
+shape = SubResource("RectangleShape2D_lp4pv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1677390020]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_8w0ih")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1552011179]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=948554120]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = -50.0
+grow_horizontal = 2
+alignment = 1

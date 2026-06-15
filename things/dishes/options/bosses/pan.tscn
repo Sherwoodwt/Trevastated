@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d1whcbq88ajni"]
+
+[ext_resource type="Script" uid="uid://ctpf4lrfdd23c" path="res://scripts/dishes/dish.gd" id="1_cc5gr"]
+[ext_resource type="Texture2D" uid="uid://13pereyufwpk" path="res://assets/dishes/pan/pan.png" id="2_es88n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8mvg"]
+size = Vector2(121, 76)
+
+[node name="Pan" type="RigidBody2D" unique_id=2020307335]
+lock_rotation = true
+script = ExtResource("1_cc5gr")
+sprite_options = Array[Texture2D]([ExtResource("2_es88n")])
+label = "pan"
+min_steps = 14
+max_steps = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1013451155]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_l8mvg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1985718310]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_es88n")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1381575501]
+
+[node name="HFlowContainer" type="HFlowContainer" parent="CanvasLayer" unique_id=1225852027]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 260.0
+grow_horizontal = 2
+alignment = 1
