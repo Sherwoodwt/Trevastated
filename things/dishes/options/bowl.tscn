@@ -2,16 +2,24 @@
 
 [ext_resource type="Script" uid="uid://ctpf4lrfdd23c" path="res://scripts/dishes/dish.gd" id="1_airfh"]
 [ext_resource type="Texture2D" uid="uid://rg3obrsh4hvu" path="res://assets/dishes/bowls/bowl3.png" id="2_35svd"]
+[ext_resource type="Texture2D" uid="uid://dyw8mrccse43g" path="res://assets/broken.png" id="2_hsspb"]
 [ext_resource type="Texture2D" uid="uid://ldxtimkslpj5" path="res://assets/dishes/bowls/bowl1.png" id="2_pajia"]
 [ext_resource type="Texture2D" uid="uid://b1svst1ibj8pc" path="res://assets/dishes/bowls/bowl2.png" id="3_dib7a"]
 [ext_resource type="Texture2D" uid="uid://dr5twkmyd8ig6" path="res://assets/dishes/bowls/bowl4.png" id="5_bkqoc"]
+[ext_resource type="AudioStream" uid="uid://c3mqrpocymdcr" path="res://sounds/break.wav" id="6_bkqoc"]
+[ext_resource type="AudioStream" uid="uid://bq73u253dxfxt" path="res://sounds/fling.wav" id="7_7fec4"]
+[ext_resource type="AudioStream" uid="uid://cegid3ugd803c" path="res://sounds/hit_ground2.wav" id="8_7fec4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8mvg"]
 size = Vector2(121, 52)
 
 [node name="Bowl" type="RigidBody2D" unique_id=2020307335]
+gravity_scale = 1.2
 lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_airfh")
+broken_texture = ExtResource("2_hsspb")
 sprite_options = Array[Texture2D]([ExtResource("2_pajia"), ExtResource("3_dib7a"), ExtResource("2_35svd"), ExtResource("5_bkqoc")])
 label = "bowls"
 min_steps = 5
@@ -34,3 +42,12 @@ anchor_right = 1.0
 offset_bottom = 260.0
 grow_horizontal = 2
 alignment = 1
+
+[node name="break_sound" type="AudioStreamPlayer2D" parent="." unique_id=1072693967]
+stream = ExtResource("6_bkqoc")
+
+[node name="succeed_sound" type="AudioStreamPlayer2D" parent="." unique_id=1188357355]
+stream = ExtResource("7_7fec4")
+
+[node name="hit_ground_sound" type="AudioStreamPlayer2D" parent="." unique_id=70465841]
+stream = ExtResource("8_7fec4")

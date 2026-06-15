@@ -1,17 +1,25 @@
 [gd_scene format=3 uid="uid://b0qf7m2igy6aj"]
 
 [ext_resource type="Script" uid="uid://ctpf4lrfdd23c" path="res://scripts/dishes/dish.gd" id="1_rfkcn"]
+[ext_resource type="Texture2D" uid="uid://dyw8mrccse43g" path="res://assets/broken.png" id="2_tdscg"]
 [ext_resource type="Texture2D" uid="uid://sb2b7u2n3xfb" path="res://assets/dishes/mugs/mug1.png" id="2_u5s5w"]
 [ext_resource type="Texture2D" uid="uid://c8i4si1uts2bf" path="res://assets/dishes/mugs/mug2.png" id="3_a6kbd"]
 [ext_resource type="Texture2D" uid="uid://xjow5u6xcuqm" path="res://assets/dishes/mugs/mug3.png" id="4_0hs17"]
 [ext_resource type="Texture2D" uid="uid://ddeqitr4cubic" path="res://assets/dishes/mugs/mug4.png" id="5_j73ev"]
+[ext_resource type="AudioStream" uid="uid://c3mqrpocymdcr" path="res://sounds/break.wav" id="6_j73ev"]
+[ext_resource type="AudioStream" uid="uid://bq73u253dxfxt" path="res://sounds/fling.wav" id="7_2yern"]
+[ext_resource type="AudioStream" uid="uid://cegid3ugd803c" path="res://sounds/hit_ground2.wav" id="8_2yern"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8mvg"]
 size = Vector2(67, 63)
 
 [node name="Mug" type="RigidBody2D" unique_id=2020307335]
+gravity_scale = 1.2
 lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_rfkcn")
+broken_texture = ExtResource("2_tdscg")
 sprite_options = Array[Texture2D]([ExtResource("2_u5s5w"), ExtResource("3_a6kbd"), ExtResource("4_0hs17"), ExtResource("5_j73ev")])
 label = "mugs"
 min_steps = 8
@@ -33,3 +41,12 @@ anchor_right = 1.0
 offset_bottom = 260.0
 grow_horizontal = 2
 alignment = 1
+
+[node name="break_sound" type="AudioStreamPlayer2D" parent="." unique_id=1933230120]
+stream = ExtResource("6_j73ev")
+
+[node name="succeed_sound" type="AudioStreamPlayer2D" parent="." unique_id=357550273]
+stream = ExtResource("7_2yern")
+
+[node name="hit_ground_sound" type="AudioStreamPlayer2D" parent="." unique_id=710708437]
+stream = ExtResource("8_2yern")

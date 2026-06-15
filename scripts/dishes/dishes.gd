@@ -6,10 +6,16 @@ extends Node2D
 @onready var heart_box: HBoxContainer = $CanvasLayer/HBoxContainer
 @onready var timer: Timer = $Timer
 @onready var timer_progress: TextureProgressBar = $CanvasLayer/TextureProgressBar
+@onready var dishwasher: Node2D = $Dishwasher
+@onready var dish_throw: AudioStreamPlayer2D = $dish_throw
+
+@export var flipper: PackedScene
 
 const MIN_DISHES: int = 7
 const MAX_DISHES: int = 12
 const MAX_FAILS: int = 3
+const FLING_SPEED: float = 650
+const FLING_ANGLE: float = -20
 
 var dishes: Array[Dish]
 
@@ -30,7 +36,7 @@ func _ready():
 			instance = DishOptions.get_random_boss().instantiate()
 			boss_spawner.add_child(instance)
 			dishes.push_front(instance)
-		await get_tree().create_timer(.3).timeout
+		await get_tree().create_timer(.36).timeout
 	await get_tree().create_timer(1).timeout
 	queue_dish()
 	timer.start()
@@ -47,9 +53,16 @@ func queue_dish():
 		queue_free()
 	else:
 		_current_dish.reparent(dish_location)
-		_current_dish.success.connect(queue_dish)
+		_current_dish.success.connect(success)
 		_current_dish.fail.connect(fail)
 		_current_dish.start()
+
+func success():
+	dish_throw.play()
+	_current_dish.gravity_scale = 1
+	_current_dish.apply_impulse(Vector2.UP.rotated(deg_to_rad(FLING_ANGLE)) * FLING_SPEED)
+	await get_tree().create_timer(.3).timeout
+	queue_dish()
 
 func fail():
 	_fails += 1
