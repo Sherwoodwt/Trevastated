@@ -7,10 +7,10 @@
 
 [node name="Game" type="Node2D" unique_id=1759030397]
 
-[node name="ChoreFactory" parent="." unique_id=318660104 instance=ExtResource("1_fc0e3")]
-min_time = 1
-max_time = 2
-max_chores = 2
+[node name="ChoreFactory" parent="." unique_id=318660104 groups=["chore_factory"] instance=ExtResource("1_fc0e3")]
+min_time = 5
+max_time = 10
+max_chores = 4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=713955531]
 
@@ -22,11 +22,11 @@ SPEED = 400.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1031450574]
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=96952294]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 72.0
+grow_vertical = 0
 text = "Chores: 0"
 script = ExtResource("5_7jktm")

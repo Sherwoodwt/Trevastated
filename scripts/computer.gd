@@ -1,6 +1,7 @@
 extends ProgressChore
 
 @onready var _congrats: Label = $CanvasLayer/Congrats
+@export var max_value: float = 1000
 
 func _ready():
 	super()
@@ -8,6 +9,7 @@ func _ready():
 
 func _setup():
 	super()
+	_progress.max_value = max_value
 	_progress.visible = false
 	_congrats.visible = false
 	_progress.value = Score.score

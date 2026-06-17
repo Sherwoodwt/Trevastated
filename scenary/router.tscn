@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dq12bvg4r73fv"]
 
+[ext_resource type="Script" uid="uid://ealu5dk5egkc" path="res://scripts/hide.gd" id="1_0jkg1"]
+[ext_resource type="Resource" uid="uid://cw2phqbo48jw5" path="res://resources/internet_man.tres" id="2_na4x4"]
 [ext_resource type="Texture2D" uid="uid://4ltgmmimuaml" path="res://assets/router.png" id="2_oyr22"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wuk1n"]
@@ -42,9 +44,12 @@ animations = [{
 size = Vector2(14, 38)
 
 [node name="Router" type="StaticBody2D" unique_id=1667104359]
+script = ExtResource("1_0jkg1")
+chore = ExtResource("2_na4x4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1896786266]
 sprite_frames = SubResource("SpriteFrames_7jacm")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=77713281]
 position = Vector2(0, 13)

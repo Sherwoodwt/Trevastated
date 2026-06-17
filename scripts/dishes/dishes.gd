@@ -1,4 +1,4 @@
-extends Node2D
+extends Subgame
 
 @onready var dish_location: Node2D = $DishLocation
 @onready var dish_spawner: Node2D = $DishSpawner
@@ -30,7 +30,7 @@ func _ready():
 		var instance: Dish
 		if i < dish_count - 1:
 			instance = DishOptions.get_random_dish().instantiate()
-			dish_spawner.add_child(instance)
+			dish_spawner.add_child.call_deferred(instance)
 			dishes.append(instance)
 		else:
 			instance = DishOptions.get_random_boss().instantiate()
@@ -50,7 +50,7 @@ func queue_dish():
 	_current_dish = dishes.pop_back()
 	if !_current_dish:
 		print("victory")
-		queue_free()
+		win.emit()
 	else:
 		_current_dish.reparent(dish_location)
 		_current_dish.success.connect(success)
@@ -74,4 +74,4 @@ func fail():
 
 func fail_game():
 	print("FAILED")
-	queue_free()
+	lose.emit()

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ChoreData" format=3 uid="uid://cby4wxju57fcm"]
+
+[ext_resource type="Script" uid="uid://6nrsoxpxn43k" path="res://scripts/chore_data.gd" id="1_33757"]
+
+[resource]
+script = ExtResource("1_33757")
+room_label = "kitchen"
+chore = "uid://vscanm8b4akc"
+metadata/_custom_type_script = "uid://6nrsoxpxn43k"

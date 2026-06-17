@@ -1,3 +1,4 @@
+class_name ChoreFactory
 extends Node2D
 
 const DIR_PATH: String = "res://resources/"
@@ -8,6 +9,12 @@ const DIR_PATH: String = "res://resources/"
 @export var max_chores = 10
 
 var _chore_options: Array[ChoreData]
+
+func stop():
+	timer.stop()
+
+func start():
+	timer.start()
 
 func _ready():
 	timer.timeout.connect(_make_trouble)

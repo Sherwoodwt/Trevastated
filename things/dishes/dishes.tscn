@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://dk5huh23hu4i4"]
+
+[ext_resource type="Script" uid="uid://c3lod6to2xisy" path="res://scripts/dishes/dishes.gd" id="1_vlvmy"]
+[ext_resource type="Texture2D" uid="uid://1co8wo57hhvg" path="res://assets/heart.png" id="2_bdnf6"]
+[ext_resource type="Texture2D" uid="uid://ym1tpbugow3r" path="res://assets/door.png" id="3_p0xeh"]
+[ext_resource type="Texture2D" uid="uid://bohy45chi5jag" path="res://assets/computer.png" id="4_4jvqs"]
+[ext_resource type="Texture2D" uid="uid://b6pbhedjtig5k" path="res://assets/sink_basin.png" id="5_st7dv"]
+[ext_resource type="Texture2D" uid="uid://trohfh7vpr44" path="res://assets/sink.png" id="6_gt36f"]
+[ext_resource type="Script" uid="uid://b35hlcbg7v5f1" path="res://scripts/float.gd" id="7_kd1ow"]
+[ext_resource type="AudioStream" uid="uid://bq73u253dxfxt" path="res://sounds/fling.wav" id="8_6xyc3"]
+[ext_resource type="Texture2D" uid="uid://dw8t2k2jkmgqs" path="res://assets/dishwasher_back.png" id="9_c2tuf"]
+[ext_resource type="Texture2D" uid="uid://kyv1nwng6yv" path="res://assets/dishwasher_front.png" id="10_gh5lw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ondxh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jffpa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3t3s8"]
+size = Vector2(0.42068964, 0.70960695)
+
+[node name="Dishes" type="Node2D" unique_id=804026353]
+script = ExtResource("1_vlvmy")
+
+[node name="Timer" type="Timer" parent="." unique_id=203843443]
+wait_time = 28.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1728260209]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1180149644]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -296.0
+offset_top = -96.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1325055209]
+layout_mode = 2
+texture = ExtResource("2_bdnf6")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1295149113]
+layout_mode = 2
+texture = ExtResource("2_bdnf6")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1709542931]
+layout_mode = 2
+texture = ExtResource("2_bdnf6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=2026874720]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_bottom = 24.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1, 8.1)
+max_value = 30.0
+value = 30.0
+fill_mode = 3
+texture_under = ExtResource("3_p0xeh")
+texture_progress = ExtResource("4_4jvqs")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2060525394]
+
+[node name="Wall" type="Sprite2D" parent="." unique_id=1619249552]
+modulate = Color(0.6509804, 0.30980393, 0.70980394, 1)
+position = Vector2(-4, -172)
+scale = Vector2(1160, 343.5)
+texture = SubResource("CanvasTexture_ondxh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1798796089]
+position = Vector2(-3, 171)
+scale = Vector2(1160, 343.5)
+
+[node name="Counter" type="Sprite2D" parent="StaticBody2D" unique_id=2019267459]
+modulate = Color(1.8771e-06, 0.511535, 0.512754, 1)
+z_index = -1
+texture = SubResource("CanvasTexture_ondxh")
+
+[node name="Counter2" type="Sprite2D" parent="StaticBody2D" unique_id=1076614977]
+modulate = Color(0, 0.27730966, 0.2796168, 1)
+z_index = -1
+position = Vector2(-0.00086206896, 0.19796216)
+scale = Vector2(1, 0.655)
+texture = SubResource("CanvasTexture_jffpa")
+
+[node name="Counter3" type="Sprite2D" parent="StaticBody2D" unique_id=1419593928]
+modulate = Color(1.92523e-07, 0.3715576, 0.37155765, 1)
+position = Vector2(0, -0.11062589)
+scale = Vector2(1, 0.04)
+texture = SubResource("CanvasTexture_jffpa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=588755595]
+position = Vector2(0.29051724, 0.14519653)
+shape = SubResource("RectangleShape2D_3t3s8")
+
+[node name="BAsin" type="Sprite2D" parent="." unique_id=1847093433]
+position = Vector2(-64.00001, 79.999985)
+scale = Vector2(0.79999983, 0.79999983)
+texture = ExtResource("5_st7dv")
+
+[node name="Sink" type="Sprite2D" parent="." unique_id=1088260884]
+position = Vector2(-185, 4.000001)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_gt36f")
+
+[node name="DishLocation" type="Node2D" parent="." unique_id=1252593322]
+position = Vector2(-68, 51)
+script = ExtResource("7_kd1ow")
+enabled = false
+
+[node name="DishSpawner" type="Node2D" parent="." unique_id=820921999]
+position = Vector2(239, -434)
+
+[node name="BossSpawner" type="Node2D" parent="." unique_id=592797007]
+position = Vector2(422, -420)
+
+[node name="dish_throw" type="AudioStreamPlayer2D" parent="." unique_id=429116637]
+stream = ExtResource("8_6xyc3")
+
+[node name="Dishwasher" type="Node2D" parent="." unique_id=502088819]
+position = Vector2(-388, 307)
+
+[node name="Dishwasherback" type="Sprite2D" parent="Dishwasher" unique_id=1822360425]
+texture = ExtResource("9_c2tuf")
+
+[node name="Dishwasherfront" type="Sprite2D" parent="Dishwasher" unique_id=787209556]
+z_index = 2
+texture = ExtResource("10_gh5lw")
+
+[connection signal="timeout" from="Timer" to="." method="fail_game"]
