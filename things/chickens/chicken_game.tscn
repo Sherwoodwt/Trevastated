@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://dbc70ggbkuyh4"]
+
+[ext_resource type="Script" uid="uid://c5turbyakovfh" path="res://scripts/chicken_game/chicken_game.gd" id="1_vh36n"]
+[ext_resource type="PackedScene" uid="uid://haqn4r1yubvd" path="res://things/chickens/chicken.tscn" id="2_vh36n"]
+[ext_resource type="PackedScene" uid="uid://cvufbfg88p07l" path="res://things/trevor.tscn" id="3_xip2s"]
+[ext_resource type="Texture2D" uid="uid://ym1tpbugow3r" path="res://assets/door.png" id="4_qf203"]
+[ext_resource type="Texture2D" uid="uid://bohy45chi5jag" path="res://assets/computer.png" id="5_3qkth"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_e2o6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uip1s"]
+size = Vector2(1014, 125)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vh36n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mwxl"]
+size = Vector2(145, 632)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xip2s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vh36n"]
+size = Vector2(145, 306)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_p61ph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xip2s"]
+size = Vector2(76, 196)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf203"]
+size = Vector2(76, 195)
+
+[node name="ChickenGame" type="Node2D" unique_id=1074540426]
+script = ExtResource("1_vh36n")
+chicken_scene = ExtResource("2_vh36n")
+
+[node name="Timer" type="Timer" parent="." unique_id=927577475]
+
+[node name="Background" type="Node2D" parent="." unique_id=312429667]
+
+[node name="Sprite" type="Sprite2D" parent="Background" unique_id=766888646]
+modulate = Color(1.8771e-06, 0.511535, 0.512754, 1)
+position = Vector2(-429.49994, -1.1444092e-05)
+scale = Vector2(2063, 808)
+texture = SubResource("CanvasTexture_e2o6t")
+
+[node name="Wall" type="StaticBody2D" parent="Background" unique_id=811272198]
+position = Vector2(2, -343)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/Wall" unique_id=1110002237]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_uip1s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Wall" unique_id=1274322637]
+modulate = Color(0.3529412, 0.1882353, 0.05490196, 1)
+scale = Vector2(1011.52, 125)
+texture = SubResource("CanvasTexture_vh36n")
+
+[node name="Wall2" type="StaticBody2D" parent="Background" unique_id=1935278152]
+position = Vector2(2, 342)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/Wall2" unique_id=1692976503]
+shape = SubResource("RectangleShape2D_uip1s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Wall2" unique_id=892613764]
+modulate = Color(0.3529412, 0.1882353, 0.05490196, 1)
+scale = Vector2(1013.36, 125)
+texture = SubResource("CanvasTexture_vh36n")
+
+[node name="Wall3" type="StaticBody2D" parent="Background" unique_id=1770200849]
+position = Vector2(579, 3)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/Wall3" unique_id=1408305349]
+position = Vector2(1.5, -1)
+shape = SubResource("RectangleShape2D_0mwxl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Wall3" unique_id=1606953494]
+modulate = Color(0.3529412, 0.1882353, 0.05490196, 1)
+position = Vector2(3.9999998, -3)
+scale = Vector2(149.329, 810.795)
+texture = SubResource("CanvasTexture_xip2s")
+
+[node name="Wall4" type="StaticBody2D" parent="Background" unique_id=1058804038]
+position = Vector2(-576, -205)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Wall4" unique_id=1175304022]
+position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_vh36n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Wall4" unique_id=1732160434]
+modulate = Color(0.3529412, 0.1882353, 0.05490196, 1)
+position = Vector2(0, -47.999996)
+scale = Vector2(145, 306)
+texture = SubResource("CanvasTexture_p61ph")
+
+[node name="Wall5" type="StaticBody2D" parent="Background" unique_id=1364374120]
+position = Vector2(-576, 299)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Wall5" unique_id=183114487]
+position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_vh36n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Wall5" unique_id=845208835]
+modulate = Color(0.3529412, 0.1882353, 0.05490196, 1)
+position = Vector2(0, -47.999996)
+scale = Vector2(145, 306)
+texture = SubResource("CanvasTexture_p61ph")
+
+[node name="Goal" type="Area2D" parent="." unique_id=2131683048]
+position = Vector2(-616, 1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" unique_id=2030451765]
+position = Vector2(-14, -2)
+shape = SubResource("RectangleShape2D_xip2s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Goal" unique_id=1036124669]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal/StaticBody2D" unique_id=1166745475]
+position = Vector2(-14, -2.5)
+shape = SubResource("RectangleShape2D_qf203")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=190896225]
+
+[node name="Trevor" parent="." unique_id=172018292 instance=ExtResource("3_xip2s")]
+position = Vector2(253, 233)
+collision_layer = 7
+collision_mask = 5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1171092220]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1921218985]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_bottom = 24.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1, 8.1)
+max_value = 30.0
+value = 30.0
+fill_mode = 3
+texture_under = ExtResource("4_qf203")
+texture_progress = ExtResource("5_3qkth")
+
+[connection signal="body_entered" from="Goal" to="." method="_goal"]

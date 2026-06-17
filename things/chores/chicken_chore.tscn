@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d4ltxtsld3yfh"]
+
+[ext_resource type="Script" uid="uid://cvtswfr0a3xe6" path="res://scripts/game_chore.gd" id="1_iw4gi"]
+[ext_resource type="PackedScene" uid="uid://dbc70ggbkuyh4" path="res://things/chickens/chicken_game.tscn" id="2_iw4gi"]
+[ext_resource type="Resource" uid="uid://bce423beh7l0e" path="res://resources/chicken.tres" id="2_lbtbc"]
+[ext_resource type="Texture2D" uid="uid://d3o5cwb1pn1mi" path="res://assets/chicken.png" id="4_iw4gi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p08yh"]
+size = Vector2(944, 103)
+
+[node name="ChickenChore" type="Area2D" unique_id=1902013969]
+position = Vector2(31, -373)
+script = ExtResource("1_iw4gi")
+game_scene = ExtResource("2_iw4gi")
+chore_data = ExtResource("2_lbtbc")
+metadata/_custom_type_script = "uid://cvtswfr0a3xe6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=112778728]
+position = Vector2(-51, 98.5)
+shape = SubResource("RectangleShape2D_p08yh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=655108201]
+position = Vector2(-109, 99)
+texture = ExtResource("4_iw4gi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=227408419]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=1071694352]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=1761753730]
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4

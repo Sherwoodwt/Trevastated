@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://haqn4r1yubvd"]
+
+[ext_resource type="Script" uid="uid://dpjl86xrh3e5u" path="res://scripts/chicken_game/wander.gd" id="1_tjycg"]
+[ext_resource type="Script" uid="uid://b1blol62fclxa" path="res://scripts/chicken_game/slider.gd" id="2_hcix3"]
+[ext_resource type="Texture2D" uid="uid://d3o5cwb1pn1mi" path="res://assets/chicken.png" id="2_u2ec0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjycg"]
+size = Vector2(40, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2ec0"]
+size = Vector2(44, 36.5)
+
+[node name="Chicken" type="CharacterBody2D" unique_id=844660623]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_tjycg")
+_min_wait_time = 0.7
+_max_wait_time = 2.0
+_min_speed = 300.0
+_max_speed = 440.0
+_random_start = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1627782994]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_tjycg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2088892241 node_paths=PackedStringArray("_body")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_hcix3")
+_body = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1970944321]
+position = Vector2(0, 4.25)
+shape = SubResource("RectangleShape2D_u2ec0")
+
+[node name="Timer" type="Timer" parent="." unique_id=122972499]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=324822128]
+texture = ExtResource("2_u2ec0")

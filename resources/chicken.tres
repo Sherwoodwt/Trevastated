@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_s8v30")
-room_label = "office"
-chore = "uid://bkr12boyl2f4r"
+room_label = "backyard"
+chore = "uid://d4ltxtsld3yfh"
 metadata/_custom_type_script = "uid://6nrsoxpxn43k"

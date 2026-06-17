@@ -5,8 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://5r2yoqy5elx0" path="res://things/door.tscn" id="2_iep16"]
 [ext_resource type="Texture2D" uid="uid://b6pbhedjtig5k" path="res://assets/sink_basin.png" id="4_v3ycp"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_2b6py"]
-
 [sub_resource type="CanvasTexture" id="CanvasTexture_bems3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3ycp"]
@@ -32,9 +30,6 @@ next_room_path = "res://scenes/backyard.tscn"
 label = "house_exit"
 inverse = "house_entrance"
 direction = Vector2(0, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=202201989]
-texture = SubResource("CanvasTexture_2b6py")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=574627195]
 position = Vector2(-456, 0)

@@ -3,14 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://iadqsguvhyo8" path="res://things/chore_factory.tscn" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cvufbfg88p07l" path="res://things/trevor.tscn" id="1_w3pct"]
 [ext_resource type="PackedScene" uid="uid://dm6rubqnu6d86" path="res://scenes/office.tscn" id="2_e2o6t"]
-[ext_resource type="Script" uid="uid://dmjuap3pn45x3" path="res://scripts/chore_label.gd" id="5_7jktm"]
+[ext_resource type="Script" uid="uid://dmjuap3pn45x3" path="res://scripts/score_label.gd" id="5_7jktm"]
 
 [node name="Game" type="Node2D" unique_id=1759030397]
 
 [node name="ChoreFactory" parent="." unique_id=318660104 groups=["chore_factory"] instance=ExtResource("1_fc0e3")]
 min_time = 5
 max_time = 10
-max_chores = 4
+max_chores = 5
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=713955531]
 
@@ -30,3 +30,5 @@ offset_right = 72.0
 grow_vertical = 0
 text = "Chores: 0"
 script = ExtResource("5_7jktm")
+_text = "Chores"
+_signal_name = "update_chores"

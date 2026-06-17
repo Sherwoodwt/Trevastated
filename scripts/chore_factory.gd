@@ -3,6 +3,8 @@ extends Node2D
 
 const DIR_PATH: String = "res://resources/"
 
+signal started
+
 @onready var timer: Timer = $Timer
 @export var min_time = 10
 @export var max_time = 20
@@ -28,13 +30,16 @@ func _ready():
 
 func start_random_timer():
 	timer.start(randf_range(min_time, max_time))
+	started.emit(timer.time_left)
 
 func _make_trouble():
 	if Score.get_chores_length() < max_chores:
 		var randi = randi_range(0, _chore_options.size()-1)
 		Score.add_chore(_chore_options[randi])
 		_chore_options.remove_at(randi)
+	start_random_timer()
 
 func _reset_chore(chore_data: ChoreData):
 	if !_chore_options.any(func(c): c == chore_data):
 		_chore_options.append(chore_data)
+		start_random_timer()

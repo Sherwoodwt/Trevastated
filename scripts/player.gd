@@ -19,8 +19,5 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("down"):
 		vel.y = SPEED
 	
-	if vel.length() == 0:
-		vel.x = move_toward(velocity.x, 0, SPEED)
-	
 	velocity = vel
 	move_and_slide()

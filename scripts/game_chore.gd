@@ -29,6 +29,7 @@ func _on_start():
 func _on_stop():
 	_chore_factory.start()
 	_player.disabled = false
+	Score.remove_chore(chore_data)
 	queue_free()
 
 func _succeed():

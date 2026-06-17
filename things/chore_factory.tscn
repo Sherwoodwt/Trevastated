@@ -1,8 +1,24 @@
 [gd_scene format=3 uid="uid://iadqsguvhyo8"]
 
 [ext_resource type="Script" uid="uid://cqvm08dml47eg" path="res://scripts/chore_factory.gd" id="1_aj07j"]
+[ext_resource type="Script" uid="uid://dmjuap3pn45x3" path="res://scripts/score_label.gd" id="2_3uldv"]
 
 [node name="ChoreFactory" type="Node2D" unique_id=318660104]
 script = ExtResource("1_aj07j")
 
 [node name="Timer" type="Timer" parent="." unique_id=337815382]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=869967353]
+
+[node name="DEBUG_timer" type="Label" parent="CanvasLayer" unique_id=310408979 node_paths=PackedStringArray("_source")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+offset_right = 40.0
+offset_bottom = -42.0
+grow_vertical = 0
+script = ExtResource("2_3uldv")
+_text = "Timer"
+_source = NodePath("../..")
+_signal_name = "started"
