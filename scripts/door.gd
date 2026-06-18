@@ -16,7 +16,10 @@ func go_through(body: Node2D):
 				return r.label == inverse
 		)
 		var door = doors.front()
-		var player = get_tree().get_first_node_in_group("player")
-		player.position = door.position + (door.direction * 96)
+		var player = get_tree().get_first_node_in_group("player") as Player
+		var pos = door.global_position + (door.direction * 120)
+		room.visible = false
+		player.global_position = pos
+		player.disabled = true
 		room.add_sibling.call_deferred(next_room)
 		room.queue_free()

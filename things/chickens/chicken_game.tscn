@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c5turbyakovfh" path="res://scripts/chicken_game/chicken_game.gd" id="1_vh36n"]
 [ext_resource type="PackedScene" uid="uid://haqn4r1yubvd" path="res://things/chickens/chicken.tscn" id="2_vh36n"]
-[ext_resource type="PackedScene" uid="uid://cvufbfg88p07l" path="res://things/trevor.tscn" id="3_xip2s"]
+[ext_resource type="Script" uid="uid://w8mtcpq43at1" path="res://scripts/player.gd" id="4_h8tnt"]
 [ext_resource type="Texture2D" uid="uid://ym1tpbugow3r" path="res://assets/door.png" id="4_qf203"]
 [ext_resource type="Texture2D" uid="uid://bohy45chi5jag" path="res://assets/computer.png" id="5_3qkth"]
+[ext_resource type="Script" uid="uid://b1blol62fclxa" path="res://scripts/chicken_game/slider.gd" id="5_4jbp0"]
+[ext_resource type="Texture2D" uid="uid://b0yri2wyedysd" path="res://assets/trevor.png" id="5_h8tnt"]
+[ext_resource type="PackedScene" uid="uid://civlhgkmnv3g" path="res://things/chickens/squirrel.tscn" id="6_3qkth"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_e2o6t"]
 
@@ -29,11 +32,21 @@ size = Vector2(76, 196)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qf203"]
 size = Vector2(76, 195)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8tnt"]
+size = Vector2(72, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jbp0"]
+size = Vector2(63, 63)
+
 [node name="ChickenGame" type="Node2D" unique_id=1074540426]
+position = Vector2(1, 1)
 script = ExtResource("1_vh36n")
 chicken_scene = ExtResource("2_vh36n")
+squirrel_scene = ExtResource("6_3qkth")
 
 [node name="Timer" type="Timer" parent="." unique_id=927577475]
+
+[node name="SquirrelTimer" type="Timer" parent="." unique_id=1906444717]
 
 [node name="Background" type="Node2D" parent="." unique_id=312429667]
 
@@ -124,10 +137,27 @@ shape = SubResource("RectangleShape2D_qf203")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=190896225]
 
-[node name="Trevor" parent="." unique_id=172018292 instance=ExtResource("3_xip2s")]
-position = Vector2(253, 233)
-collision_layer = 7
-collision_mask = 5
+[node name="Player" type="CharacterBody2D" parent="." unique_id=159502511]
+position = Vector2(252, 232)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("4_h8tnt")
+
+[node name="Area2D" type="Area2D" parent="Player" unique_id=1440961013 node_paths=PackedStringArray("_body")]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("5_4jbp0")
+_body = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D" unique_id=4469131]
+shape = SubResource("RectangleShape2D_h8tnt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=684211313]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_4jbp0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=416542052]
+texture = ExtResource("5_h8tnt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1171092220]
 
@@ -146,5 +176,64 @@ value = 30.0
 fill_mode = 3
 texture_under = ExtResource("4_qf203")
 texture_progress = ExtResource("5_3qkth")
+
+[node name="SquirrelSpawns" type="Node2D" parent="." unique_id=842847037]
+
+[node name="spawn" type="Node2D" parent="SquirrelSpawns" unique_id=487153446]
+position = Vector2(-484, -406)
+
+[node name="spawn2" type="Node2D" parent="SquirrelSpawns" unique_id=1583414022]
+position = Vector2(-209, -402)
+
+[node name="spawn3" type="Node2D" parent="SquirrelSpawns" unique_id=1263158376]
+position = Vector2(6, -405)
+
+[node name="spawn4" type="Node2D" parent="SquirrelSpawns" unique_id=442679280]
+position = Vector2(234, -404)
+
+[node name="spawn5" type="Node2D" parent="SquirrelSpawns" unique_id=307795918]
+position = Vector2(488, -396)
+
+[node name="spawn6" type="Node2D" parent="SquirrelSpawns" unique_id=1087300908]
+position = Vector2(653, -365)
+
+[node name="spawn7" type="Node2D" parent="SquirrelSpawns" unique_id=1394205017]
+position = Vector2(679, -230)
+
+[node name="spawn8" type="Node2D" parent="SquirrelSpawns" unique_id=863423398]
+position = Vector2(676, -83)
+
+[node name="spawn9" type="Node2D" parent="SquirrelSpawns" unique_id=326770478]
+position = Vector2(654, 116)
+
+[node name="spawn10" type="Node2D" parent="SquirrelSpawns" unique_id=1757018639]
+position = Vector2(685, 386)
+
+[node name="spawn11" type="Node2D" parent="SquirrelSpawns" unique_id=990415013]
+position = Vector2(465, 415)
+
+[node name="spawn12" type="Node2D" parent="SquirrelSpawns" unique_id=1333251077]
+position = Vector2(242, 414)
+
+[node name="spawn13" type="Node2D" parent="SquirrelSpawns" unique_id=1415398119]
+position = Vector2(6, 418)
+
+[node name="spawn14" type="Node2D" parent="SquirrelSpawns" unique_id=23758718]
+position = Vector2(-226, 413)
+
+[node name="spawn15" type="Node2D" parent="SquirrelSpawns" unique_id=1150450932]
+position = Vector2(-472, 417)
+
+[node name="spawn16" type="Node2D" parent="SquirrelSpawns" unique_id=730901639]
+position = Vector2(-668, 400)
+
+[node name="spawn17" type="Node2D" parent="SquirrelSpawns" unique_id=1726429571]
+position = Vector2(-656, 242)
+
+[node name="spawn18" type="Node2D" parent="SquirrelSpawns" unique_id=430262433]
+position = Vector2(-657, -211)
+
+[node name="spawn19" type="Node2D" parent="SquirrelSpawns" unique_id=1200480548]
+position = Vector2(-653, -420)
 
 [connection signal="body_entered" from="Goal" to="." method="_goal"]

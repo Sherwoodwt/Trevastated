@@ -5,6 +5,8 @@ extends Node2D
 var _active_chores: Array[ChoreData]
 
 func _ready():
+	var player = get_tree().get_first_node_in_group("player") as Player
+	player.disabled = false
 	Score.chore_added.connect(_chore_added)
 	Score.chore_removed.connect(_chore_removed)
 	var chore_datas = Score.get_room_chores(label)

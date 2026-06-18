@@ -15,7 +15,6 @@ max_chores = 5
 [node name="Camera2D" type="Camera2D" parent="." unique_id=713955531]
 
 [node name="Trevor" parent="." unique_id=92534709 instance=ExtResource("1_w3pct")]
-SPEED = 400.0
 
 [node name="Room" parent="." unique_id=3565350 instance=ExtResource("2_e2o6t")]
 

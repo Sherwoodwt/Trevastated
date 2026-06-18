@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://civlhgkmnv3g"]
+
+[ext_resource type="Script" uid="uid://c18sm3n3v1jbf" path="res://scripts/chicken_game/move_constant.gd" id="1_75pql"]
+[ext_resource type="Texture2D" uid="uid://dg007d78bnoeb" path="res://assets/squirrel.png" id="2_fwqf3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_75pql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8tnt"]
+atlas = ExtResource("2_fwqf3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr1rq"]
+atlas = ExtResource("2_fwqf3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_178dr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8tnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr1rq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Squirrel" type="CharacterBody2D" unique_id=1011425675]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 4
+motion_mode = 1
+script = ExtResource("1_75pql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=883950485]
+position = Vector2(-0.9375014, -1.249999)
+scale = Vector2(0.99999934, 0.99999934)
+shape = SubResource("CircleShape2D_75pql")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1471196015]
+sprite_frames = SubResource("SpriteFrames_178dr")
+autoplay = "default"
+frame_progress = 0.23956174

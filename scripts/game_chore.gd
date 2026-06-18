@@ -16,6 +16,9 @@ func _ready():
 	canvas.visible = false
 	start.connect(_on_start)
 	stop.connect(_on_stop)
+	monitoring = false
+	await get_tree().physics_frame
+	monitoring = true
 
 func _on_start():
 	_chore_factory.stop()
