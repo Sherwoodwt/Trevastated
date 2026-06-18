@@ -4,11 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://ya82mjagkwwn" path="res://things/floor.tscn" id="1_b2xus"]
 [ext_resource type="PackedScene" uid="uid://5r2yoqy5elx0" path="res://things/door.tscn" id="2_iep16"]
 [ext_resource type="Texture2D" uid="uid://b6pbhedjtig5k" path="res://assets/sink_basin.png" id="4_v3ycp"]
+[ext_resource type="Texture2D" uid="uid://bhwc4vy27prmp" path="res://assets/fridge.png" id="5_g3o0j"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bems3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3ycp"]
 size = Vector2(65, 440)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3o0j"]
+size = Vector2(151, 156)
 
 [node name="Room" type="Node2D" unique_id=1016312019]
 script = ExtResource("1_2b6py")
@@ -49,3 +53,14 @@ position = Vector2(37.999996, -29)
 rotation = -1.5707964
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_v3ycp")
+
+[node name="Fridge" type="StaticBody2D" parent="." unique_id=1846115924]
+position = Vector2(380, 87)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fridge" unique_id=1801617379]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_g3o0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fridge" unique_id=461243527]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_g3o0j")

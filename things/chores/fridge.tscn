@@ -1,49 +1,48 @@
 [gd_scene format=3 uid="uid://bkr12boyl2f4r"]
 
-[ext_resource type="Script" uid="uid://b38ghrs5ga0yg" path="res://scripts/balance_chore.gd" id="1_og6km"]
-[ext_resource type="Resource" uid="uid://bce423beh7l0e" path="res://resources/chicken.tres" id="2_e87ir"]
-[ext_resource type="Texture2D" uid="uid://ym1tpbugow3r" path="res://assets/door.png" id="3_t8b50"]
-[ext_resource type="Texture2D" uid="uid://bohy45chi5jag" path="res://assets/computer.png" id="4_je0fx"]
+[ext_resource type="Script" uid="uid://cvtswfr0a3xe6" path="res://scripts/game_chore.gd" id="1_ygkta"]
+[ext_resource type="Resource" uid="uid://d3v2n4pkrq84a" path="res://resources/fridge.tres" id="2_og6km"]
+[ext_resource type="Texture2D" uid="uid://c1n1nmbx840k0" path="res://assets/fridge_open.png" id="3_e87ir"]
 [ext_resource type="PackedScene" uid="uid://dgd4nkk4i2p3o" path="res://things/balance.tscn" id="5_tt6gj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iotnv"]
-size = Vector2(200, 200)
+size = Vector2(201, 155)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4ivk"]
-size = Vector2(49, 57)
+size = Vector2(150, 154)
 
-[node name="BalanceChore" type="Area2D" unique_id=290661070]
-position = Vector2(-351, -209)
-script = ExtResource("1_og6km")
-chore_data = ExtResource("2_e87ir")
-metadata/_custom_type_script = "uid://b38ghrs5ga0yg"
+[node name="GameChore" type="Area2D" unique_id=1999672550]
+script = ExtResource("1_ygkta")
+game_scene = ExtResource("5_tt6gj")
+chore_data = ExtResource("2_og6km")
+metadata/_custom_type_script = "uid://cvtswfr0a3xe6"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1812031795]
+position = Vector2(357.5, 86.5)
 shape = SubResource("RectangleShape2D_iotnv")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1781862352]
+position = Vector2(380, 87)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1444965204]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_e87ir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1726547370]
-position = Vector2(3.5, 3.5)
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_u4ivk")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1779110966]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=497740038]
 
-[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1832527524]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 26.0
-offset_top = -32.0
-offset_right = 90.0
-offset_bottom = 32.0
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=815601686]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.2, 1.9)
-max_value = 200.0
-fill_mode = 3
-texture_under = ExtResource("3_t8b50")
-texture_progress = ExtResource("4_je0fx")
 
-[node name="Balance" parent="CanvasLayer" unique_id=2062322893 instance=ExtResource("5_tt6gj")]
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=1596638906]
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4

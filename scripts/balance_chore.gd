@@ -12,9 +12,13 @@ func _ready():
 	_progress.visible = false
 	_balance.visible = false
 	_balance.failing.connect(_set_failing)
+	_balance.lost.connect(_lose)
 	start.connect(_start)
 	stop.connect(_stop)
-	
+	monitoring = false
+	await get_tree().physics_frame
+	monitoring = true
+
 func _start():
 	_progress.visible = true
 	_balance.start()
@@ -26,11 +30,16 @@ func _stop():
 	_balance.stop()
 	_going = false
 
+func _lose():
+	print("lost")
+	finish()
+
 func _physics_process(delta: float) -> void:
 	if (_going):
 		_progress.value += 1
 	
 	if _progress.value == _progress.max_value:
+		print("win")
 		finish()
 
 func finish():

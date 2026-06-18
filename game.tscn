@@ -8,8 +8,8 @@
 [node name="Game" type="Node2D" unique_id=1759030397]
 
 [node name="ChoreFactory" parent="." unique_id=318660104 groups=["chore_factory"] instance=ExtResource("1_fc0e3")]
-min_time = 5
-max_time = 10
+min_time = 2
+max_time = 2
 max_chores = 5
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=713955531]

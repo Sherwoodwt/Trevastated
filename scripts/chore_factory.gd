@@ -34,9 +34,9 @@ func start_random_timer():
 
 func _make_trouble():
 	if Score.get_chores_length() < max_chores:
-		var randi = randi_range(0, _chore_options.size()-1)
-		Score.add_chore(_chore_options[randi])
-		_chore_options.remove_at(randi)
+		var rand_i = randi_range(0, _chore_options.size()-1)
+		Score.add_chore(_chore_options[rand_i])
+		_chore_options.remove_at(rand_i)
 	start_random_timer()
 
 func _reset_chore(chore_data: ChoreData):
