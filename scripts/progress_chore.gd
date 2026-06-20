@@ -2,6 +2,7 @@ class_name ProgressChore
 extends Chore
 
 @onready var _progress: TextureProgressBar = $CanvasLayer/ProgressBar
+@export var amount: float = 1
 
 func _ready():
 	super()
@@ -16,8 +17,9 @@ func _stop():
 	_progress.visible = false
 
 func _physics_process(delta: float) -> void:
-	if (_body):
-		_progress.value += 1
+	super(delta)
+	if (_progress.visible):
+		_progress.value += amount
 	
 	if _progress.value == _progress.max_value:
 		finish()

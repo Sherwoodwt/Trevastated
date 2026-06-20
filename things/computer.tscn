@@ -12,6 +12,9 @@ size = Vector2(64, 32)
 
 [node name="Computer" type="Area2D" unique_id=1500137423]
 script = ExtResource("1_q0our")
+max_value = 32000.0
+start_amount = 16.0
+_auto = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2097873706]
 position = Vector2(0, 33)
@@ -31,11 +34,15 @@ shape = SubResource("RectangleShape2D_p3f41")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=344826469]
 
 [node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=924899582]
-offset_left = 518.0
-offset_top = 27.0
-offset_right = 582.0
-offset_bottom = 91.0
-scale = Vector2(1.89811, 0.200001)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_top = 8.0
+offset_right = -448.0
+offset_bottom = 72.0
+grow_horizontal = 2
+scale = Vector2(16, 0.3)
 texture_under = ExtResource("3_4au0a")
 texture_progress = ExtResource("2_t8pov")
 

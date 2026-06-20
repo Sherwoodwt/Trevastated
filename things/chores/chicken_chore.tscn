@@ -13,6 +13,7 @@ position = Vector2(31, -373)
 script = ExtResource("1_iw4gi")
 game_scene = ExtResource("2_iw4gi")
 chore_data = ExtResource("2_lbtbc")
+_auto = true
 metadata/_custom_type_script = "uid://cvtswfr0a3xe6"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=112778728]

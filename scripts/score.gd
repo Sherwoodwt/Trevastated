@@ -3,6 +3,7 @@ extends Node
 signal update_chores(count: int)
 signal chore_removed(chore: ChoreData)
 signal chore_added(chore: ChoreData)
+signal chore_running(running: bool)
 
 var score: int
 var _chores: Array[ChoreData]

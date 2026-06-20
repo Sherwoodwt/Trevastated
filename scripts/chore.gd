@@ -5,21 +5,35 @@ signal start
 signal stop
 
 @export var chore_data: ChoreData
+@export var _auto: bool
 var _body: Node2D
+var _overlapping: bool
+var _started: bool
 
 func _ready():
 	body_entered.connect(enter)
 	body_exited.connect(exit)
-
-func enter(body: Node2D):
-	if body.is_in_group("player"):
-		_body = body
-		start.emit()
-
-func exit(body: Node2D):
-	if body.is_in_group("player"):
-		_body = null
-		stop.emit()
+	_setup()
 
 func _setup():
-	visible = true
+	start.connect(func(): Score.chore_running.emit(true))
+	stop.connect(func(): Score.chore_running.emit(false))
+
+func enter(body: Node2D):
+	if !body.is_in_group("player"):
+		return
+	_overlapping = true
+	_body = body
+
+func exit(body: Node2D):
+	if !body.is_in_group("player"):
+		return
+	_overlapping = false
+	_body = null
+	_started = false
+	stop.emit()
+
+func _physics_process(delta: float) -> void:
+	if !_started and _overlapping and (_auto or Input.is_action_pressed("interact")):
+		_started = true
+		start.emit()

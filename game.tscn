@@ -1,15 +1,21 @@
 [gd_scene format=3 uid="uid://boqnd0oc8tn16"]
 
+[ext_resource type="Script" uid="uid://deqxgljwube7q" path="res://scripts/game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://iadqsguvhyo8" path="res://things/chore_factory.tscn" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cvufbfg88p07l" path="res://things/trevor.tscn" id="1_w3pct"]
 [ext_resource type="PackedScene" uid="uid://dm6rubqnu6d86" path="res://scenes/office.tscn" id="2_e2o6t"]
 [ext_resource type="Script" uid="uid://dmjuap3pn45x3" path="res://scripts/score_label.gd" id="5_7jktm"]
+[ext_resource type="Texture2D" uid="uid://dpxb6lwew5uxw" path="res://assets/clock-background.png" id="5_ryrav"]
+[ext_resource type="Texture2D" uid="uid://brkj6vgnwdu41" path="res://assets/clock-front.png" id="6_eow3j"]
 
 [node name="Game" type="Node2D" unique_id=1759030397]
+script = ExtResource("1_eow3j")
+
+[node name="DayTimer" type="Timer" parent="." unique_id=459103955]
 
 [node name="ChoreFactory" parent="." unique_id=318660104 groups=["chore_factory"] instance=ExtResource("1_fc0e3")]
-min_time = 2
-max_time = 2
+min_time = 4
+max_time = 4
 max_chores = 5
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=713955531]
@@ -31,3 +37,13 @@ text = "Chores: 0"
 script = ExtResource("5_7jktm")
 _text = "Chores"
 _signal_name = "update_chores"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1700681634]
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 55.0
+offset_bottom = 56.0
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("5_ryrav")
+texture_progress = ExtResource("6_eow3j")
