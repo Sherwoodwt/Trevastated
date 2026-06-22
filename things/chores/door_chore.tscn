@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://0fu5y0illkl4"]
+
+[ext_resource type="Script" uid="uid://cvtswfr0a3xe6" path="res://scripts/game_chore.gd" id="1_o4hn1"]
+[ext_resource type="PackedScene" uid="uid://dk5huh23hu4i4" path="res://things/dishes/dishes.tscn" id="2_eyi0o"]
+[ext_resource type="Resource" uid="uid://cby4wxju57fcm" path="res://resources/dishes_chore.tres" id="3_dmyku"]
+[ext_resource type="Texture2D" uid="uid://cfi4npt60ce7u" path="res://assets/dish_pile.png" id="4_ygpny"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p08yh"]
+size = Vector2(100, 300)
+
+[node name="DishesChore" type="Area2D" unique_id=1902013969]
+position = Vector2(-416, -113)
+script = ExtResource("1_o4hn1")
+game_scene = ExtResource("2_eyi0o")
+chore_data = ExtResource("3_dmyku")
+metadata/_custom_type_script = "uid://cvtswfr0a3xe6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=112778728]
+shape = SubResource("RectangleShape2D_p08yh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2047669855]
+position = Vector2(-18, -37)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_ygpny")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=227408419]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=1071694352]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=1761753730]
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4

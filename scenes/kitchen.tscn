@@ -22,14 +22,16 @@ label = "kitchen"
 scale = Vector2(-1.15872, 1.0749)
 
 [node name="Door" parent="." unique_id=581443712 instance=ExtResource("2_iep16")]
-position = Vector2(-433, 269)
+position = Vector2(-450, 269)
+scale = Vector2(0.5, 1)
 next_room_path = "res://scenes/hallway.tscn"
 label = "kitchen_exit"
 inverse = "kitchen_entrance"
 direction = Vector2(1, 0)
 
 [node name="Door2" parent="." unique_id=46533173 instance=ExtResource("2_iep16")]
-position = Vector2(431, -269)
+position = Vector2(432, -284)
+scale = Vector2(1, 0.5)
 next_room_path = "res://scenes/backyard.tscn"
 label = "house_exit"
 inverse = "house_entrance"

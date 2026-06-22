@@ -9,19 +9,12 @@ script = ExtResource("1_0vul7")
 label = "hallway"
 
 [node name="Floor" parent="." unique_id=1391720260 instance=ExtResource("2_jl4oa")]
-position = Vector2(0, 39)
-scale = Vector2(1, 0.240001)
+scale = Vector2(1.125, 1.15)
 
 [node name="Door" parent="." unique_id=423251405 instance=ExtResource("3_swubv")]
-position = Vector2(-368, 4)
-next_room_path = "res://scenes/office.tscn"
-label = "office_entrance"
-inverse = "office_exit"
-direction = Vector2(1, 0)
-
-[node name="Door2" parent="." unique_id=1334456290 instance=ExtResource("3_swubv")]
-position = Vector2(370, 4)
-next_room_path = "res://scenes/kitchen.tscn"
-label = "kitchen_entrance"
-inverse = "kitchen_exit"
-direction = Vector2(-1, 0)
+position = Vector2(18, -306)
+scale = Vector2(1, 0.5)
+next_room_path = "uid://cr74gy562gc8i"
+label = "livingroom_exit"
+inverse = "livingroom_entrance"
+direction = Vector2(0, 1)

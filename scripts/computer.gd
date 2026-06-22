@@ -4,10 +4,6 @@ extends ProgressChore
 @export var max_value: float = 8000
 @export var start_amount: float = 8
 
-func _ready():
-	super()
-	_setup()
-
 # override chore.setup, don't stop day clock
 func _setup():
 	Score.update_chores.connect(chores_changed)

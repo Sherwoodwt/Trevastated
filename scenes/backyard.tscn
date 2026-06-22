@@ -13,7 +13,8 @@ modulate = Color(0.505882, 1, 0, 1)
 position = Vector2(0, -1)
 
 [node name="Door" parent="." unique_id=755061857 instance=ExtResource("2_jxqff")]
-position = Vector2(367, 248)
+position = Vector2(369, 262)
+scale = Vector2(1, 0.5)
 next_room_path = "res://scenes/kitchen.tscn"
 label = "house_entrance"
 inverse = "house_exit"
