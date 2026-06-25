@@ -1,9 +1,15 @@
 [gd_resource type="Resource" script_class="ChoreData" format=3 uid="uid://cw2phqbo48jw5"]
 
+[ext_resource type="Texture2D" uid="uid://b6xcou15s7x5e" path="res://assets/router_broken.png" id="1_5jjqo"]
 [ext_resource type="Script" uid="uid://6nrsoxpxn43k" path="res://scripts/chore_data.gd" id="1_x6tlg"]
 
 [resource]
 script = ExtResource("1_x6tlg")
 room_label = "office"
 chore = "uid://b67fwbhe86xlv"
+cooldown = 20.0
+likelihood = 0.1
+escalate_time = 10.0
+stress_amount = 10.0
+icon = ExtResource("1_5jjqo")
 metadata/_custom_type_script = "uid://6nrsoxpxn43k"

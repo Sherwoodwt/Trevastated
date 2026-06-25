@@ -1,9 +1,15 @@
 [gd_resource type="Resource" script_class="ChoreData" format=3 uid="uid://d3v2n4pkrq84a"]
 
 [ext_resource type="Script" uid="uid://6nrsoxpxn43k" path="res://scripts/chore_data.gd" id="1_ebtio"]
+[ext_resource type="Texture2D" uid="uid://c1n1nmbx840k0" path="res://assets/fridge_open.png" id="1_ujv3d"]
 
 [resource]
 script = ExtResource("1_ebtio")
 room_label = "kitchen"
 chore = "uid://bkr12boyl2f4r"
+cooldown = 15.0
+likelihood = 0.4
+escalate_time = 10.0
+stress_amount = 2.0
+icon = ExtResource("1_ujv3d")
 metadata/_custom_type_script = "uid://6nrsoxpxn43k"

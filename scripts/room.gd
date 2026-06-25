@@ -17,7 +17,9 @@ func _chore_added(chore: ChoreData):
 	if chore.room_label != label:
 		return
 	_active_chores.append(chore)
-	var instance = load(chore.chore).instantiate() as Node2D
+	var instance = load(chore.chore).instantiate() as Chore
+	instance.start.connect(Score.stop)
+	instance.stop.connect(Score.start)
 	add_child(instance)
 
 func _chore_removed(chore: ChoreData):

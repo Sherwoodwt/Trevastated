@@ -1,9 +1,15 @@
 [gd_resource type="Resource" script_class="ChoreData" format=3 uid="uid://bce423beh7l0e"]
 
 [ext_resource type="Script" uid="uid://6nrsoxpxn43k" path="res://scripts/chore_data.gd" id="1_s8v30"]
+[ext_resource type="Texture2D" uid="uid://d3o5cwb1pn1mi" path="res://assets/chicken.png" id="1_uctch"]
 
 [resource]
 script = ExtResource("1_s8v30")
 room_label = "backyard"
 chore = "uid://d4ltxtsld3yfh"
+cooldown = 25.0
+likelihood = 0.2
+escalate_time = 20.0
+stress_amount = 5.0
+icon = ExtResource("1_uctch")
 metadata/_custom_type_script = "uid://6nrsoxpxn43k"

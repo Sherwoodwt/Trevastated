@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://5wb6hdnr0cak"]
+
+[ext_resource type="Script" uid="uid://deir68e4rymve" path="res://scripts/phone.gd" id="1_5uvrc"]
+[ext_resource type="Script" uid="uid://b35hlcbg7v5f1" path="res://scripts/float.gd" id="2_l7gk1"]
+[ext_resource type="Texture2D" uid="uid://biex0m142ya6f" path="res://assets/pharn.png" id="3_ufa7c"]
+[ext_resource type="Texture2D" uid="uid://l8tej61nxq0r" path="res://assets/pharn_clicked.png" id="4_niovt"]
+[ext_resource type="Script" uid="uid://comy56aucj6xx" path="res://scripts/phone_game/phone_game.gd" id="5_l7gk1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yv1l"]
+size = Vector2(10, 479)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l64r8"]
+size = Vector2(344, 9)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=28732178]
+script = ExtResource("1_5uvrc")
+
+[node name="PhoneButton" type="Control" parent="." unique_id=1193898853]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 15.0
+offset_top = 95.0
+offset_right = 15.0
+offset_bottom = 95.0
+scale = Vector2(0.1, 0.1)
+
+[node name="Float" type="Node2D" parent="PhoneButton" unique_id=651812909]
+position = Vector2(0, -1)
+script = ExtResource("2_l7gk1")
+enabled = false
+float_distance = 10.0
+metadata/_custom_type_script = "uid://b35hlcbg7v5f1"
+
+[node name="PhoneButton" type="TextureButton" parent="PhoneButton/Float" unique_id=1521238543]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_ufa7c")
+texture_pressed = ExtResource("4_niovt")
+
+[node name="Panel" type="Panel" parent="." unique_id=15162648]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Phone" type="TextureRect" parent="Panel" unique_id=140907776]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -320.0
+offset_right = 320.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ufa7c")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Panel/Phone" unique_id=1777757641]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -260.0
+offset_right = 160.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Panel/Phone/SubViewportContainer" unique_id=1201768114]
+handle_input_locally = false
+size = Vector2i(320, 435)
+render_target_update_mode = 4
+script = ExtResource("5_l7gk1")
+
+[node name="wall" type="StaticBody2D" parent="Panel/Phone/SubViewportContainer/SubViewport" unique_id=1093560637]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/Phone/SubViewportContainer/SubViewport/wall" unique_id=666172933]
+position = Vector2(-5, 229.5)
+shape = SubResource("RectangleShape2D_5yv1l")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Panel/Phone/SubViewportContainer/SubViewport/wall" unique_id=756865405]
+position = Vector2(326, 230)
+shape = SubResource("RectangleShape2D_5yv1l")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Panel/Phone/SubViewportContainer/SubViewport/wall" unique_id=455420906]
+position = Vector2(162, -5.5)
+shape = SubResource("RectangleShape2D_l64r8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Panel/Phone/SubViewportContainer/SubViewport/wall" unique_id=406685520]
+position = Vector2(162, 465)
+shape = SubResource("RectangleShape2D_l64r8")
+
+[node name="Button" type="Button" parent="Panel/Phone" unique_id=1206052124]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 96.0
+offset_top = 175.0
+offset_right = 159.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Add Food"
+
+[connection signal="pressed" from="Panel/Phone/Button" to="Panel/Phone/SubViewportContainer/SubViewport" method="add_food"]

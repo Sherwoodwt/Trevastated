@@ -38,4 +38,3 @@ func _succeed():
 
 func _fail():
 	print("fail")
-	_on_stop()

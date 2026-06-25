@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d1muohld0bond"]
+
+[ext_resource type="Texture2D" uid="uid://brkj6vgnwdu41" path="res://assets/clock-front.png" id="1_0pm0n"]
+[ext_resource type="Script" uid="uid://3ghnocs26nug" path="res://scripts/phone_game/being.gd" id="1_3vxmh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5yv1l"]
+radius = 30.265491
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l64r8"]
+radius = 63.07139
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=97373833]
+collision_mask = 2
+script = ExtResource("1_3vxmh")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1169438033]
+shape = SubResource("CircleShape2D_5yv1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=981522265]
+texture = ExtResource("1_0pm0n")
+
+[node name="Area" type="Area2D" parent="." unique_id=1712772051]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=2100657468]
+shape = SubResource("CircleShape2D_l64r8")
+
+[node name="Eyes" type="Area2D" parent="." unique_id=499850130]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Eyes" unique_id=318096412]
+polygon = PackedVector2Array(-350, -300, 350, -300, 0, 0)
+
+[connection signal="body_entered" from="Area" to="." method="_area_entered"]
+[connection signal="body_exited" from="Area" to="." method="_area_exited"]
+[connection signal="body_entered" from="Eyes" to="." method="_seen_entered"]
+[connection signal="body_exited" from="Eyes" to="." method="_seen_exited"]

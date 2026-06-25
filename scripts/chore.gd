@@ -16,8 +16,8 @@ func _ready():
 	_setup()
 
 func _setup():
-	start.connect(func(): Score.chore_running.emit(true))
-	stop.connect(func(): Score.chore_running.emit(false))
+	start.connect(func(): _set_running(true))
+	stop.connect(func(): _set_running(false))
 
 func enter(body: Node2D):
 	if !body.is_in_group("player"):
@@ -37,3 +37,6 @@ func _physics_process(delta: float) -> void:
 	if !_started and _overlapping and (_auto or Input.is_action_pressed("interact")):
 		_started = true
 		start.emit()
+
+func _set_running(running: bool):
+	Score.chore_running.emit(running)
