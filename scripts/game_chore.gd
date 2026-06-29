@@ -6,7 +6,6 @@ extends Chore
 
 @export var game_scene: PackedScene
 var _player: Player
-var _chore_factory: ChoreFactory
 var _game: Node
 
 func _ready():

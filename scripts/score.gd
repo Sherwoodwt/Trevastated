@@ -39,11 +39,11 @@ func _ready():
 
 func add_chore(chore_data: ChoreData):
 	_chores.append(chore_data)
-	timers[chore_data.resource_name].TIMER.stop()
+	timers[chore_data.resource_name][TIMER].stop()
 	for key in timers.keys():
-		if key != chore_data.resource_name:
-			# If one is added, all other timers reset
-			timers[key].TIMER.start()
+		# If one is added, all non-active chores' timers reset
+		if !_chores.any(func(c): c.resource_name == key):
+			timers[key][TIMER].start()
 	chore_added.emit(chore_data)
 	update_chores.emit(_chores.size())
 
@@ -67,5 +67,5 @@ func _attempt(chore: ChoreData):
 		add_chore(chore)
 
 func _cooldown_chore(chore_data: ChoreData):
-	var cooldown = timers[chore_data.resource_name].COOLDOWN as Timer
+	var cooldown = timers[chore_data.resource_name][COOLDOWN] as Timer
 	cooldown.start()

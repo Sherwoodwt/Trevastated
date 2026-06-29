@@ -18,6 +18,7 @@ func _chore_added(chore: ChoreData):
 		return
 	_active_chores.append(chore)
 	var instance = load(chore.chore).instantiate() as Chore
+	# TODO: Do this next, need to have a way to tell chore timers in Score to start and stop when playing
 	instance.start.connect(Score.stop)
 	instance.stop.connect(Score.start)
 	add_child(instance)

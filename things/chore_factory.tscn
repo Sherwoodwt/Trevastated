@@ -2,57 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmjuap3pn45x3" path="res://scripts/score_label.gd" id="2_3uldv"]
 
-[sub_resource type="GDScript" id="GDScript_aj07j"]
-script/source = "extends Node2D
-
-signal started
-
-@export var max_chores = 10
-
-var _chore_options: Array[ChoreData]
-
-func stop():
-	timer.stop()
-
-func start():
-	timer.start()
-
-func _ready():
-	Score.chore_removed.connect(_cooldown_chore)
-
-func _make_trouble():
-	if Score.get_chores_length() < max_chores and _chore_options.size() > 1:
-		var roll = randf()
-		var options = _scramble(_chore_options) as Array[ChoreData]
-		var pick: ChoreData
-		for option in options:
-			roll -= option.likelihood
-			if roll <= 0:
-				pick = option
-				pass
-		if !pick:
-			pick = options.back()
-		Score.add_chore(pick)
-		_chore_options.remove_at(_chore_options.find(pick))
-	start_random_timer()
-
-
-
-func _scramble(options: Array):
-	var scrambled: Array = []
-	var copy = options
-	for i in range(0, options.size()):
-		var pick = copy.pick_random()
-		copy.remove_at(copy.find(pick))
-		scrambled.append(pick)
-	return scrambled
-"
-
 [node name="ChoreFactory" type="Node2D" unique_id=318660104]
-script = SubResource("GDScript_aj07j")
-min_time = null
-max_time = null
-max_chores = null
 
 [node name="Timer" type="Timer" parent="." unique_id=337815382]
 
